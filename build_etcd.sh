@@ -6,7 +6,7 @@
     # --deb-default FILEPATH        (deb only) Add FILEPATH as /etc/default configuration
     # --deb-upstart FILEPATH        (deb only) Add FILEPATH as an upstart script
 
-ETCD_VERSION=2.3.0
+ETCD_VERSION=2.3.1
 
 rm -rf etcd/source
 mkdir etcd/source
