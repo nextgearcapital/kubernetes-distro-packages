@@ -30,8 +30,8 @@ fpm -s dir -n "etcd" \
 --before-remove etcd/scripts/deb/before-remove.sh \
 --deb-init etcd/services/initd/etcd \
 --license "Apache Software License 2.0" \
---maintainer "Kismatic, Inc. <info@kismatic.com>" \
---vendor "Kismatic, Inc." \
+--maintainer "NextGear Capital <devops@nextgearcapital.com>" \
+--vendor "NextGear Capital" \
 --description "Etcd binaries and services" \
 source/etcd=/usr/bin/etcd \
 source/etcdctl=/usr/bin/etcdctl
@@ -50,8 +50,8 @@ fpm -s dir -n "etcd" \
 --before-remove etcd/scripts/deb/systemd/before-remove.sh \
 --config-files etc/etcd \
 --license "Apache Software License 2.0" \
---maintainer "Kismatic, Inc. <info@kismatic.com>" \
---vendor "Kismatic, Inc." \
+--maintainer "NextGear Capital <devops@nextgearcapital.com>" \
+--vendor "NextGear Capital" \
 --description "Etcd binaries and services" \
 source/etcd=/usr/bin/etcd \
 source/etcdctl=/usr/bin/etcdctl \
@@ -73,8 +73,8 @@ fpm -s dir -n "etcd" \
 --before-remove etcd/scripts/rpm/before-remove.sh \
 --config-files etc/etcd \
 --license "Apache Software License 2.0" \
---maintainer "Kismatic, Inc. <info@kismatic.com>" \
---vendor "Kismatic, Inc." \
+--maintainer "NextGear Capital <devops@nextgearcapital.com>" \
+--vendor "NextGear Capital" \
 --description "Etcd binaries and services" \
 source/etcd=/usr/bin/etcd \
 source/etcdctl=/usr/bin/etcdctl \

@@ -43,10 +43,10 @@ fpm -s dir -n "kubernetes-master" \
 --deb-default kubernetes/master/initd_config/kube-scheduler \
 --deb-default kubernetes/master/initd_config/kubelet \
 --license "Apache Software License 2.0" \
---maintainer "Kismatic, Inc. <info@kismatic.com>" \
---vendor "Kismatic, Inc." \
+--maintainer "NextGear Capital <devops@nextgearcapital.com>" \
+--vendor "NextGear Capital" \
 --description "Kubernetes master binaries and services" \
---url "https://www.kismatic.com" \
+--url "https://www.nextgearcapital.com" \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-apiserver=/usr/bin/kube-apiserver \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-controller-manager=/usr/bin/kube-controller-manager \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-scheduler=/usr/bin/kube-scheduler \
@@ -67,10 +67,10 @@ fpm -s dir -n "kubernetes-master" \
 --after-remove kubernetes/master/scripts/deb/systemd/after-remove.sh \
 --before-remove kubernetes/master/scripts/deb/systemd/before-remove.sh \
 --license "Apache Software License 2.0" \
---maintainer "Kismatic, Inc. <info@kismatic.com>" \
---vendor "Kismatic, Inc." \
+--maintainer "NextGear Capital <devops@nextgearcapital.com>" \
+--vendor "NextGear Capital" \
 --description "Kubernetes master binaries and services" \
---url "https://www.kismatic.com" \
+--url "https://www.nextgearcapital.com" \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-apiserver=/usr/bin/kube-apiserver \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-controller-manager=/usr/bin/kube-controller-manager \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-scheduler=/usr/bin/kube-scheduler \
@@ -120,10 +120,10 @@ fpm -s dir -n "kubernetes-node" \
 --deb-init kubernetes/node/services/initd/kubelet \
 --deb-init kubernetes/node/services/initd/kube-proxy \
 --license "Apache Software License 2.0" \
---maintainer "Kismatic, Inc. <info@kismatic.com>" \
---vendor "Kismatic, Inc." \
+--maintainer "NextGear Capital <devops@nextgearcapital.com>" \
+--vendor "NextGear Capital" \
 --description "Kubernetes node binaries and services" \
---url "https://www.kismatic.com" \
+--url "https://www.nextgearcapital.com" \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kubelet=/usr/bin/kubelet \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-proxy=/usr/bin/kube-proxy \
 etc/kubernetes/manifests
@@ -142,10 +142,10 @@ fpm -s dir -n "kubernetes-node" \
 --before-remove kubernetes/node/scripts/deb/systemd/before-remove.sh \
 --config-files etc/kubernetes/node \
 --license "Apache Software License 2.0" \
---maintainer "Kismatic, Inc. <info@kismatic.com>" \
---vendor "Kismatic, Inc." \
+--maintainer "NextGear Capital <devops@nextgearcapital.com>" \
+--vendor "NextGear Capital" \
 --description "Kubernetes node binaries and services" \
---url "https://www.kismatic.com" \
+--url "https://www.nextgearcapital.com" \
 etc/kubernetes/node/config.conf \
 etc/kubernetes/node/kubelet.conf \
 etc/kubernetes/node/kube-proxy.conf \
@@ -171,10 +171,10 @@ fpm -s dir -n "kubernetes-master" \
 --before-remove kubernetes/master/scripts/rpm/before-remove.sh \
 --config-files etc/kubernetes/master \
 --license "Apache Software License 2.0" \
---maintainer "Kismatic, Inc. <info@kismatic.com>" \
---vendor "Kismatic, Inc." \
+--maintainer "NextGear Capital <devops@nextgearcapital.com>" \
+--vendor "NextGear Capital" \
 --description "Kubernetes master binaries and services" \
---url "https://www.kismatic.com" \
+--url "https://www.nextgearcapital.com" \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-apiserver=/usr/bin/kube-apiserver \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-controller-manager=/usr/bin/kube-controller-manager \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-scheduler=/usr/bin/kube-scheduler \
@@ -196,7 +196,7 @@ etc/kubernetes/manifests
 fpm -s dir -n "kubernetes-node" \
 -p kubernetes/builds \
 -C ./kubernetes/node -v $K8S_VERSION \
--d 'docker-engine >= 1.7.0' \
+-d 'docker-engine >= 1.8.0' \
 -a x86_64 \
 -t rpm --rpm-os linux \
 --after-install kubernetes/node/scripts/rpm/after-install.sh \
@@ -205,10 +205,10 @@ fpm -s dir -n "kubernetes-node" \
 --before-remove kubernetes/node/scripts/rpm/before-remove.sh \
 --config-files etc/kubernetes/node \
 --license "Apache Software License 2.0" \
---maintainer "Kismatic, Inc. <info@kismatic.com>" \
---vendor "Kismatic, Inc." \
+--maintainer "NextGear Capital <devops@nextgearcapital.com>" \
+--vendor "NextGear Capital" \
 --description "Kubernetes node binaries and services" \
---url "https://www.kismatic.com" \
+--url "https://www.nextgearcapital.com" \
 etc/kubernetes/node/config.conf \
 etc/kubernetes/node/kubelet.conf \
 etc/kubernetes/node/kube-proxy.conf \

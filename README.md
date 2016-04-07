@@ -1,32 +1,18 @@
 # Kubernetes Linux Distribution Packages Builder
 
-## Quick Install (RedHat 7, CentOS 7, Debian 7, Ubuntu 14.x, 15.x)
-
-* Kubernetes master:
-```
-curl -sSL https://get.kismatic.com/kubernetes/master.sh | sudo sh
-```
-
-* Kubernetes nodes:
-```
-curl -sSL https://get.kismatic.com/kubernetes/node.sh | sudo sh
-```
-
 * Requirements:
   * Install [etcd](https://github.com/coreos/etcd) (on master or a separate etcd cluster)
   * Install [docker](https://docs.docker.com/installation) (ubuntu/debian only)
 
-## Configuration and Manual Setup
-
-### System.d and RedHat 7 / CentOS 7 Configuration
-
-The quick start scripts above will automatically add the kismatic repository as a source. Alternatively, you can manually add it with the command:
-```
-rpm -Uvh https://repos.kismatic.com/el/7/x86_64/kismatic-repo-el-7-1.x86_64.rpm
+To build Kubernetes:
+```sh
+./build_kubernetes
 ```
 
-Manually Install Master: `sudo yum install kubernetes-master`
-Manually Install Nodes: `sudo yum kubernetes-node`
+To build etcd:
+```sh
+./build_etcd
+```
 
 #### Configure Kubernetes Master
 
