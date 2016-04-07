@@ -2,8 +2,6 @@
 
 K8S_VERSION=${K8S_VERSION:-1.2.1}
 rm -rf kubernetes/source/kubernetes/v$K8S_VERSION
-rm -f kubernetes/master/kubernetes-master-$K8S_VERSION-1.x86_64.rpm
-rm -f kubernetes/master/kubernetes-node-$K8S_VERSION-1.x86_64.rpm
 rm -f kubernetes/master/kubernetes-master_$K8S_VERSION_amd64.deb
 rm -f kubernetes/master/kubernetes-node_$K8S_VERSION_amd64.deb
 
@@ -140,69 +138,6 @@ fpm -s dir -n "kubernetes-node" \
 --before-install kubernetes/node/scripts/deb/systemd/before-install.sh \
 --after-remove kubernetes/node/scripts/deb/systemd/after-remove.sh \
 --before-remove kubernetes/node/scripts/deb/systemd/before-remove.sh \
---config-files etc/kubernetes/node \
---license "Apache Software License 2.0" \
---maintainer "NextGear Capital <devops@nextgearcapital.com>" \
---vendor "NextGear Capital" \
---description "Kubernetes node binaries and services" \
---url "https://www.nextgearcapital.com" \
-etc/kubernetes/node/config.conf \
-etc/kubernetes/node/kubelet.conf \
-etc/kubernetes/node/kube-proxy.conf \
-services/systemd/kubelet.service=/lib/systemd/system/kubelet.service \
-services/systemd/kube-proxy.service=/lib/systemd/system/kube-proxy.service \
-../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kubelet=/usr/bin/kubelet \
-../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-proxy=/usr/bin/kube-proxy \
-etc/kubernetes/manifests
-
-# build_rpm_master
-    # rpm
-    # /lib/systemd/system
-
-fpm -s dir -n "kubernetes-master" \
--p kubernetes/builds \
--C ./kubernetes/master -v $K8S_VERSION \
--d 'docker-engine >= 1.7.0' \
--t rpm --rpm-os linux \
--a x86_64 \
---after-install kubernetes/master/scripts/rpm/after-install.sh \
---before-install kubernetes/master/scripts/rpm/before-install.sh \
---after-remove kubernetes/master/scripts/rpm/after-remove.sh \
---before-remove kubernetes/master/scripts/rpm/before-remove.sh \
---config-files etc/kubernetes/master \
---license "Apache Software License 2.0" \
---maintainer "NextGear Capital <devops@nextgearcapital.com>" \
---vendor "NextGear Capital" \
---description "Kubernetes master binaries and services" \
---url "https://www.nextgearcapital.com" \
-../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-apiserver=/usr/bin/kube-apiserver \
-../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-controller-manager=/usr/bin/kube-controller-manager \
-../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-scheduler=/usr/bin/kube-scheduler \
-../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kubectl=/usr/bin/kubectl \
-../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kubelet=/usr/bin/kubelet \
-../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/hyperkube=/usr/bin/hyperkube \
-services/systemd/kube-apiserver.service=/lib/systemd/system/kube-apiserver.service \
-services/systemd/kube-controller-manager.service=/lib/systemd/system/kube-controller-manager.service \
-services/systemd/kube-scheduler.service=/lib/systemd/system/kube-scheduler.service \
-services/systemd/kubelet.service=/lib/systemd/system/kubelet.service \
-etc/kubernetes/master/kubelet.conf \
-etc/kubernetes/master/apiserver.conf \
-etc/kubernetes/master/config.conf \
-etc/kubernetes/master/controller-manager.conf \
-etc/kubernetes/master/scheduler.conf \
-etc/kubernetes/manifests
-
-
-fpm -s dir -n "kubernetes-node" \
--p kubernetes/builds \
--C ./kubernetes/node -v $K8S_VERSION \
--d 'docker-engine >= 1.8.0' \
--a x86_64 \
--t rpm --rpm-os linux \
---after-install kubernetes/node/scripts/rpm/after-install.sh \
---before-install kubernetes/node/scripts/rpm/before-install.sh \
---after-remove kubernetes/node/scripts/rpm/after-remove.sh \
---before-remove kubernetes/node/scripts/rpm/before-remove.sh \
 --config-files etc/kubernetes/node \
 --license "Apache Software License 2.0" \
 --maintainer "NextGear Capital <devops@nextgearcapital.com>" \
