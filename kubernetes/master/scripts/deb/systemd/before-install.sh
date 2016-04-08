@@ -9,7 +9,7 @@ getent passwd kube >/dev/null || useradd -r -g kube -d /var/run/kubernetes -s /s
 chown -R kube /var/run/kubernetes
 chgrp -R kube /var/run/kubernetes
 
-SERVICE_ACCOUNT_KEY="/srv/kubernetes/kube-serviceaccount.key"
+SERVICE_ACCOUNT_KEY="/etc/kubernetes/service_account.key"
 # Generate ServiceAccount key if needed
 if [ ! -f "${SERVICE_ACCOUNT_KEY}" ]; then
   mkdir -p "$(dirname ${SERVICE_ACCOUNT_KEY})"

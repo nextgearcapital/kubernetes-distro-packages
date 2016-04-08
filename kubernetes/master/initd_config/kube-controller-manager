@@ -1,1 +1,1 @@
-DAEMON_ARGS="$DAEMON_ARGS --master=127.0.0.1:8080 --v=2 --service_account_private_key_file=/var/kubernetes/kube-serviceaccount.key --cluster_name=kubernetes --cluster-cidr=10.244.0.0/16"
+DAEMON_ARGS="$DAEMON_ARGS --master=127.0.0.1:8080 --v=2 --service_account_private_key_file=/etc/kubernetes/service_account.key --cluster_name=kubernetes --cluster-cidr=10.244.0.0/16"
